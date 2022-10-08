@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/FaizanAli987/parkingspace.git/static/css/main.f3a38d5e.css",
+    "main.js": "/FaizanAli987/parkingspace.git/static/js/main.b76e46ab.js",
+    "static/media/2739.jpg": "/FaizanAli987/parkingspace.git/static/media/2739.f780bfc5d1377756a15c.jpg",
+    "static/media/bg.png": "/FaizanAli987/parkingspace.git/static/media/bg.d3be086b9ba4e702bd98.png",
+    "static/media/7610.jpg": "/FaizanAli987/parkingspace.git/static/media/7610.c9f23a3026ac55db114e.jpg",
+    "static/media/log.png": "/FaizanAli987/parkingspace.git/static/media/log.8071acb5ff2bedfa9175.png",
+    "static/media/b.webp": "/FaizanAli987/parkingspace.git/static/media/b.197c3afa608571d1e8be.webp",
+    "static/media/parkmarklogo.jpg": "/FaizanAli987/parkingspace.git/static/media/parkmarklogo.1aa95ff1f3c84122de6d.jpg",
+    "static/media/su.png": "/FaizanAli987/parkingspace.git/static/media/su.82880366d5f95b03002c.png",
+    "static/media/ace.png": "/FaizanAli987/parkingspace.git/static/media/ace.d3947c6d6b55239057fa.png",
+    "static/media/cop.webp": "/FaizanAli987/parkingspace.git/static/media/cop.6db946a123589ae948fd.webp",
+    "static/media/s.png": "/FaizanAli987/parkingspace.git/static/media/s.77305b1aefd2bee0b0b2.png",
+    "static/media/disability_icon.png": "/FaizanAli987/parkingspace.git/static/media/disability_icon.1e2666a8a5473391f5a3.png",
+    "index.html": "/FaizanAli987/parkingspace.git/index.html",
+    "main.f3a38d5e.css.map": "/FaizanAli987/parkingspace.git/static/css/main.f3a38d5e.css.map",
+    "main.b76e46ab.js.map": "/FaizanAli987/parkingspace.git/static/js/main.b76e46ab.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f3a38d5e.css",
+    "static/js/main.b76e46ab.js"
+  ]
+}
