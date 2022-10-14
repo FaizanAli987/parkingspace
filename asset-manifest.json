@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/static/css/main.f3a38d5e.css",
-    "main.js": "/static/js/main.4c583e98.js",
-    "static/media/2739.jpg": "/static/media/2739.f780bfc5d1377756a15c.jpg",
-    "static/media/bg.png": "/static/media/bg.d3be086b9ba4e702bd98.png",
-    "static/media/7610.jpg": "/static/media/7610.c9f23a3026ac55db114e.jpg",
-    "static/media/log.png": "/static/media/log.8071acb5ff2bedfa9175.png",
-    "static/media/b.webp": "/static/media/b.197c3afa608571d1e8be.webp",
-    "static/media/parkmarklogo.jpg": "/static/media/parkmarklogo.1aa95ff1f3c84122de6d.jpg",
-    "static/media/su.png": "/static/media/su.82880366d5f95b03002c.png",
-    "static/media/ace.png": "/static/media/ace.d3947c6d6b55239057fa.png",
-    "static/media/cop.webp": "/static/media/cop.6db946a123589ae948fd.webp",
-    "static/media/s.png": "/static/media/s.77305b1aefd2bee0b0b2.png",
-    "static/media/disability_icon.png": "/static/media/disability_icon.1e2666a8a5473391f5a3.png",
-    "index.html": "/index.html",
-    "main.f3a38d5e.css.map": "/static/css/main.f3a38d5e.css.map",
-    "main.4c583e98.js.map": "/static/js/main.4c583e98.js.map"
+    "main.css": "./static/css/main.f3a38d5e.css",
+    "main.js": "./static/js/main.2853e19e.js",
+    "static/media/2739.jpg": "./static/media/2739.f780bfc5d1377756a15c.jpg",
+    "static/media/bg.png": "./static/media/bg.d3be086b9ba4e702bd98.png",
+    "static/media/7610.jpg": "./static/media/7610.c9f23a3026ac55db114e.jpg",
+    "static/media/log.png": "./static/media/log.8071acb5ff2bedfa9175.png",
+    "static/media/b.webp": "./static/media/b.197c3afa608571d1e8be.webp",
+    "static/media/parkmarklogo.jpg": "./static/media/parkmarklogo.1aa95ff1f3c84122de6d.jpg",
+    "static/media/su.png": "./static/media/su.82880366d5f95b03002c.png",
+    "static/media/ace.png": "./static/media/ace.d3947c6d6b55239057fa.png",
+    "static/media/cop.webp": "./static/media/cop.6db946a123589ae948fd.webp",
+    "static/media/s.png": "./static/media/s.77305b1aefd2bee0b0b2.png",
+    "static/media/disability_icon.png": "./static/media/disability_icon.1e2666a8a5473391f5a3.png",
+    "index.html": "./index.html",
+    "main.f3a38d5e.css.map": "./static/css/main.f3a38d5e.css.map",
+    "main.2853e19e.js.map": "./static/js/main.2853e19e.js.map"
   },
   "entrypoints": [
     "static/css/main.f3a38d5e.css",
-    "static/js/main.4c583e98.js"
+    "static/js/main.2853e19e.js"
   ]
 }
