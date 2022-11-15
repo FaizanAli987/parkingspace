@@ -14,15 +14,18 @@ import Search from './screens/Search';
 import Booking from './screens/Booking';
 import Dashboard from './dashboard/screens/Dashboard';
 import Login from './dashboard/screens/Login';
+import Stripe from './dashboard/screens/Stripe';
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Home />} />
       <Route path="/searchparkingspaces" element={<Search />} />
       <Route path="/booking" element={<Booking />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/payment" element={<Stripe />} />
+
   
      
    
