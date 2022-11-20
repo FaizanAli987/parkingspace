@@ -1,8 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Tooltip from '../tooltip/Tooltip'
 import Tooltipimg from '../tooltip/Tooltipimg'
-import { Link } from "react-router-dom";
-function Booking({bookingimage,bookingtitle,bookingtitletip,bookinglist1,bookinglist2,bookinglist3,bookingprice}) {
+import { Link} from "react-router-dom";
+function Booking({item,bookingimage,bookingtitle,bookingtitletip,bookinglist1,bookinglist2,bookinglist3,bookingprice,ratings}) {
+
+
+  const [stars,setStars]=useState([])
+
+  useEffect(()=>{
+    for(var i=0;i<parseInt(ratings[0]);i++){
+      setStars(prev=>[...prev,i])
+    }
+  },[])
+
+  const onBook=()=>{
+    localStorage.setItem('bookingData',JSON.stringify(item))
+    window.location.href='/booking'
+  }
+  
   return (
     <> 
      <div className="col-xl-3 col-lg-3 col-md-6 col-sm-12">
@@ -41,18 +56,21 @@ function Booking({bookingimage,bookingtitle,bookingtitletip,bookinglist1,booking
     <h3>
     £ {bookingprice}
     </h3>
-    <Link to="/booking">    <button>Book Now</button></Link>
+        <button onClick={onBook}>Book Now</button>
   </div>
   <div className="booking-review">
 <h6>
     Ratings:
 </h6>
 <div className="booking-ratings">
+ {stars.map((item,index)=>(
+  <i className="fas fa-star"></i>
+
+ ))}
+{/* <i className="fas fa-star"></i>
 <i className="fas fa-star"></i>
 <i className="fas fa-star"></i>
-<i className="fas fa-star"></i>
-<i className="fas fa-star"></i>
-<i className="fas fa-star"></i>
+<i className="fas fa-star"></i> */}
 </div>
   </div>
    </div>

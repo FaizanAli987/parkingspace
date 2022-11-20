@@ -1,9 +1,53 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Fragment } from 'react'
 import H1tag from '../../typography/H1tag'
 import Ptag from '../../typography/Ptag'
+import { ServerUrl } from '../../../helper'
 
 function  Herosection() {
+	const [airports,setAirports]=useState([])
+	const [selectedAirport,setSelectedAirport]=useState('')
+	const [dropOffDate,setDropOffDate]=useState('')
+	const [dropOffTime,setDropOffTime]=useState('')
+	const [pickupDate,setPickupDate]=useState('')
+	const [pickupTime,setPickupTime]=useState('')
+
+	const getAllAirports=async()=>{
+			fetch(`${ServerUrl}/getAirports`,{
+			  method:'GET'
+			}).then((r)=>r.json()).then((r)=>{
+			  console.log(r?.airports)
+			  r?.airports?.map((item,index)=>{
+				setAirports(prev=>[...prev,item])
+			  })
+			}).catch((err)=>{
+			  console.log(err)
+			})
+		  
+	}
+
+	const checkAvailability=async(e)=>{
+		e.preventDefault()
+		const data={
+			selectedAirport,
+			dropOffDate,
+			dropOffTime,
+			pickupDate,
+			pickupTime
+		}
+
+		if(!selectedAirport||!dropOffDate||!dropOffTime||!pickupDate||!pickupTime){
+			alert('Fill all fiels')
+		}else{
+            localStorage.setItem('dataToSearch',JSON.stringify(data))
+			window.location.href=`/searchparkingspaces`
+		}
+	}
+
+	useEffect(()=>{
+
+		getAllAirports()
+	},[])
   return (
     <>   
       <section className="image-with-text hero-section ">
@@ -44,14 +88,16 @@ function  Herosection() {
 							<form>
               <div className="form-group">
 											<span className="form-label">Select Airport</span>
-											<select className="form-control">
+											<select className="form-control" value={selectedAirport} onChange={(e)=>{
+												setSelectedAirport(e.target.value)
+											}}>
 												<option>Select Airport</option>
-												<option>Airport Parking 1</option>
-												<option>Airport Parking 2</option>
-												<option>Airport Parking 3</option>
-												<option>Airport Parking 4</option>
-												<option>Airport Parking 5</option>
-												<option>Airport Parking 6</option>
+												{airports.map((item,index)=>{
+													return(
+												<option>{item}</option>
+
+													)
+												})}
 										
 											</select>
 											<span className="select-arrow"></span>
@@ -60,13 +106,19 @@ function  Herosection() {
 									<div className="col-sm-6">
 										<div className="form-group">
 											<span className="form-label">Drop Off Date</span>
-											<input className="form-control" type="date" required/>
+											<input className="form-control" type="date" value={dropOffDate} required onChange={(val)=>{
+											
+												setDropOffDate(val.target.value)
+											}}/>
 										</div>
 									</div>
 									<div className="col-sm-6">
 										<div className="form-group">
 											<span className="form-label">Time</span>
-											<input className="form-control" type="time" required/>
+											<input className="form-control" type="time" value={dropOffTime} required onChange={(val)=>{
+											
+												setDropOffTime(val.target.value)
+											}}/>
 										</div>
 									</div>
 								</div>
@@ -74,19 +126,25 @@ function  Herosection() {
 									<div className="col-sm-6">
 										<div className="form-group">
 											<span className="form-label">Pick Up Date</span>
-											<input className="form-control" type="date" required/>
+											<input className="form-control" type="date" value={pickupDate} required onChange={(val)=>{
+											
+											setPickupDate(val.target.value)
+										}}/>
 										</div>
 									</div>
 									<div className="col-sm-6">
 										<div className="form-group">
 											<span className="form-label">Time</span>
-											<input className="form-control" type="time" required/>
+											<input className="form-control" type="time" value={pickupTime} required onChange={(val)=>{
+											
+											setPickupTime(val.target.value)
+										}}/>
 										</div>
 									</div>
 								</div>
 					
 								<div className="form-btn">
-									<button className="submit-btn">Check availability</button>
+									<button className="submit-btn" onClick={checkAvailability}>Check availability</button>
 								</div>
 							</form>
 						</div>

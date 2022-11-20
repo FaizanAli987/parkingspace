@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { localUrl } from '../../helper'
+import { ServerUrl } from '../../helper'
 function Login() {
 	const [email,setEmail]=useState('')
 	const [password,setPassword]=useState('')
@@ -13,14 +13,16 @@ function Login() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email:email,password:password})
 			};
-			fetch(`${localUrl}/login`, requestOptions)
+			fetch(`${ServerUrl}/login`, requestOptions)
 				.then(response => response.json())
 				.then(data => {
 					if(data.success==false){
-						alert('Invalid email or password')
+						alert(data.message)
 					}else{
-						window.location.href='/dashboard'
-						
+						console.log(data)
+						// window.location.href='/dashboard'
+						localStorage.setItem("isAuthenticated","true")
+						window.location.pathname='/dashboard'
 					}
 				});
 		// }

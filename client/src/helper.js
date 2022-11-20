@@ -1,1 +1,1 @@
-export const localUrl='http://localhost:8000/api/v1'
+export const ServerUrl='https://parkingspace1.herokuapp.com/api/v1/'

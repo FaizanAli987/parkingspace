@@ -1,6 +1,6 @@
 import React from "react";
 
-function BookingForm() {
+function BookingForm({item}) {
   return (
     <>
       <section className="pt-100 pb-80 bookingformsection bottom-wave">
@@ -139,13 +139,13 @@ Vehical Details
                         <img src={require('../../../images/b.webp')} alt="" />
                     </div>
                     <h3>
-                    FastPark Heathrow
+                    {item?.bookingTitle}
                     </h3>
                 </div>
                 <hr />
                 <ul className="booking-selected-ul my-20">
                     <li>
-                    <span>Location:</span>    <span className="strong-span">Heathrow Airport</span>
+                    <span>Location:</span>    <span className="strong-span">{item?.airportName}</span>
                     </li>
                     <li>
                     <span>Drop-off DateTime:</span>    <span className="strong-span">13 Oct 2022 at 12:00</span>
@@ -165,7 +165,7 @@ Vehical Details
                 <hr />
                 <ul className="booking-selected-ul my-20">
                     <li>
-                    <span>Booking Fee:</span>    <span className="strong-span">£ 1.95
+                    <span>Booking Fee:</span>    <span className="strong-span">£ {item?.bookingPrice}
 </span>
                     </li>
                 </ul>

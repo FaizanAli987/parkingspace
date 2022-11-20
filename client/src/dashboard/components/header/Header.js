@@ -16,7 +16,11 @@ function Header() {
   <img src={require('../../../images/banner3.jpg')} /> 
   </button>
   <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a className="dropdown-item" href="#">Signout</a></li>
+    <li><a className="dropdown-item" href="#" onClick={()=>{
+						localStorage.removeItem('isAuthenticated')
+						window.location.pathname='/login'
+
+    }}>Signout</a></li>
   
   </ul>
 </div>
