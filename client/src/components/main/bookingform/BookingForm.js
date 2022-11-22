@@ -7,7 +7,11 @@ function BookingForm({item}) {
         <div className="sec-box">
           <div className="booking-form row">
             <div className="col-xl-8 col-lg-8 col-md-12 border-right-dotted">
-            <form>
+            <form onSubmit={(e)=>{
+              e.preventDefault()
+              localStorage.setItem('bookingprice',item.bookingPrice)
+              window.location.href='/payment'
+            }}>
                 <h3 className="form-heading">
                     Your Deatils
                 </h3>

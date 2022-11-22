@@ -16,6 +16,12 @@ import Dashboard from './dashboard/screens/Dashboard';
 import Login from './dashboard/screens/Login';
 import Stripe from './dashboard/screens/Stripe';
 const rootElement = document.getElementById("root");
+
+window.onclose = function() {
+  localStorage.clear()
+  return '';
+};
+
 render(
   <BrowserRouter>
     <Routes>
