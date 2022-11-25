@@ -1,6 +1,11 @@
 import React,{useState} from 'react'
 import { ServerUrl } from '../../helper'
+import { setAdminAuth } from '../../Redux/slices/UserData'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 function Login() {
+	const dispatch=useDispatch()
+	let history=useHistory()
 	const [email,setEmail]=useState('')
 	const [password,setPassword]=useState('')
 	const doLogin=(e)=>{
@@ -21,8 +26,10 @@ function Login() {
 					}else{
 						console.log(data)
 						// window.location.href='/dashboard'
-						localStorage.setItem("isAuthenticated","true")
-						window.location.pathname='/dashboard'
+						// localStorage.setItem("isAuthenticated","true")
+						dispatch(setAdminAuth(true))
+						history.push('/dashboard')
+						// window.location.pathname='/dashboard'
 					}
 				});
 		// }
@@ -35,7 +42,7 @@ function Login() {
 	<div className="screen">
 		<div className="screen__content">
             
-			<form className="login" onSubmit={(e)=>doLogin(e)}>
+			<form className="login" onSubmit={doLogin}>
             <h3>Welcome!</h3>
 				<div className="login__field">
 					<i className="login__icon fas fa-user"></i>

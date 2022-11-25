@@ -1,52 +1,45 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import SearchHero from '../components/main/searchsection/SearchHero';
 import { ServerUrl } from '../helper';
+import { useSelector, useDispatch } from 'react-redux'
+
 
 function Search() {
-  
+	const fields=useSelector((state)=>state.user.searchAirportFelds)
+	const bookingDivRef=useSelector((state)=>state.user.bookingDivRef)
+
+
   const [searchedBookings,setBookings]=useState([])
 
   const [airports,setAirports]=useState([])
-	const [selectedAirport,setSelectedAirport]=useState('')
-	const [dropOffDate,setDropOffDate]=useState('')
-	const [dropOffTime,setDropOffTime]=useState('')
-	const [pickupDate,setPickupDate]=useState('')
-	const [pickupTime,setPickupTime]=useState('')
-
-const dataFromPreviousPage = localStorage.getItem('dataToSearch')
-var data
 
 
 
-const searchBookingPreviousPage=async(airportName)=>{
-  fetch(`${ServerUrl}/getBookingsByAirportName`,{
-    method:'PUT',
-    headers: { 'Content-Type': 'application/json' },
-    body:JSON.stringify({
-      "airportName":airportName
-    })
-  }).then((r)=>r.json()).then((r)=>{
-    console.log(r)
-    r?.bookings.map((item,index)=>{
-      setBookings(prev=>[...prev,item])
-    })
-  })
-}
 const searchBookings=async()=>{
-  
+  // setBookings([])
   fetch(`${ServerUrl}/getBookingsByAirportName`,{
     method:'PUT',
     headers: { 'Content-Type': 'application/json' },
     body:JSON.stringify({
-      "airportName":selectedAirport
+      "airportName":fields.selectedAirport
     })
   }).then((r)=>r.json()).then((r)=>{
     console.log(r)
     r?.bookings.map((item,index)=>{
-      setBookings(prev=>[...prev,item])
+      var exists=searchedBookings.find(o=>o._id==item._id)
+      if(!exists){
+        setBookings(prev=>[...prev,item])
+
+      }
     })
+    setBookings(prev=>[...new Set(prev)])
+
+  }).then(()=>{
+    // bookingDivRef.current.scrollIntoView()
+console.log(bookingDivRef)
+bookingDivRef&&bookingDivRef.current.scrollIntoView()
   })
 }
 
@@ -65,9 +58,14 @@ const getAllAirports=async()=>{
 }
 useEffect(()=>{
   getAllAirports()
-  if(dataFromPreviousPage){
-    data=JSON.parse(dataFromPreviousPage)
-    searchBookingPreviousPage(data.selectedAirport)
+  if(   !fields.selectedAirport ||
+    !fields.dropOffDate ||
+    !fields.dropOffTime ||
+    !fields.pickupDate ||
+    !fields.pickupTime){
+
+  }else{
+    searchBookings()
   }
 },[])
 
@@ -76,7 +74,7 @@ useEffect(()=>{
       <Header />
       <main>
 
-<SearchHero airports={airports} selectedAirport={selectedAirport} bookings={searchedBookings} setSelectedAirport={setSelectedAirport} setDropOffDate={setDropOffDate} setDropOffTime={setDropOffTime} setPickupDate={setPickupDate} setPickupTime={setPickupTime} onCheck={(e)=>{
+<SearchHero airports={airports} bookings={searchedBookings}  onCheck={(e)=>{
   e.preventDefault();
   searchBookings()
 }}/>

@@ -86,6 +86,8 @@ function CheckoutForm() {
   },[])
   const payMoney = async (e) => {
     e.preventDefault();
+    var fname=localStorage.getItem('firstName')
+    var lname=localStorage.getItem('lastName')
     if (!stripe || !elements) {
       return;
     }
@@ -96,7 +98,7 @@ function CheckoutForm() {
       payment_method: {
         card: elements.getElement(CardElement),
         billing_details: {
-          name: "Ali Hassan",
+          name: fname+" "+lname,
         },
       },
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import Serviceslist from "../components/main/icon with text/Serviceslist";
@@ -9,6 +9,7 @@ import Counter from "../components/main/counter/Counter";
 import Faqsec from "../components/main/faq section/Faqsec";
 import '../App.css'
 function Home() {
+
   return (
     <>
       <Header />
@@ -19,13 +20,6 @@ function Home() {
         <Serviceslist />
         <Welcome />
         <Faqsec />
-    
-
-        {/* <AppFeatureList /> */}
-
-        {/* <CaptainAndTraveler /> */}
-
-        {/* <FAQListHome /> */}
       </main>
 
       <Footer />

@@ -1,9 +1,17 @@
 import React,{useRef} from 'react'
 import Booking from './Booking'
+import { setBookingsDivRef,setSearchAirportFields } from '../../../Redux/slices/UserData'
+import { useSelector, useDispatch } from 'react-redux'
 
-function SearchHero({bookings,airports,selectedAirport,setSelectedAirport,setDropOffDate,setDropOffTime,setPickupDate,setPickupTime,onCheck}) {
+
+function SearchHero({bookings,airports,onCheck}) {
 	const bookingDivRef=useRef(null)
+	const fields=useSelector((state)=>state.user.searchAirportFelds)
 
+	const dispatch=useDispatch()
+	const handleChange = (key, value) => {
+		dispatch(setSearchAirportFields({ key, value }));
+	  };
   return (
     <>
     <section className="hero-search pt-100 pb-80 bottom-wave">
@@ -16,8 +24,10 @@ function SearchHero({bookings,airports,selectedAirport,setSelectedAirport,setDro
 <div className="row">
     <div className="col-xl-4 col-lg-3 col-md-6">      <div className="form-group">
 											<span className="form-label">Select Airport</span>
-											<select className="form-control" value={selectedAirport} onChange={(e)=>{
-												setSelectedAirport(e.target.value)
+											<select className="form-control" value={fields.selectedAirport} onChange={(e)=>{
+										
+												handleChange("selectedAirport", e.target.value);
+
 											}}>
 												<option>Select Airport</option>
 												{airports.map((item,index)=>{
@@ -32,36 +42,37 @@ function SearchHero({bookings,airports,selectedAirport,setSelectedAirport,setDro
 										</div></div>
     <div className="col-xl-2 col-lg-3 col-md-6">	<div className="form-group">
 											<span className="form-label">Drop Off Date</span>
-											<input className="form-control" type="date" required onChange={(val)=>{
+											<input className="form-control" type="date" value={fields.dropOffDate} required onChange={(val)=>{
+                          handleChange("dropOffDate", val.target.value);
 											
-											setDropOffDate(val.target.value)
 										}}/>
 										</div></div>
     <div className="col-xl-2 col-lg-3 col-md-6">	<div className="form-group">
 											<span className="form-label">Time</span>
-											<input className="form-control" type="time" required onChange={(val)=>{
+											<input className="form-control" type="time" value={fields.dropOffTime} required onChange={(val)=>{
+                              handleChange("dropOffTime", val.target.value);
 											
-											setDropOffTime(val.target.value)
 										}}/>
 										</div></div>
     <div className="col-xl-2 col-lg-3 col-md-6">	<div className="form-group">
 											<span className="form-label">Pick Up Date</span>
-											<input className="form-control" type="date" required onChange={(val)=>{
+											<input className="form-control" type="date" value={fields.pickupDate} required onChange={(val)=>{
+                              handleChange("pickupDate", val.target.value);
 											
-											setPickupDate(val.target.value)
 										}}/>
 										</div></div>
     <div className="col-xl-2 col-lg-3 col-md-6">			<div className="form-group">
 											<span className="form-label">Time</span>
-											<input className="form-control" type="time" required onChange={(val)=>{
+											<input className="form-control" type="time" value={fields.pickupTime} required onChange={(val)=>{
+                              handleChange("pickupTime", val.target.value);
 											
-											setPickupTime(val.target.value)
 										}}/>
 										</div></div>
 </div>
 
 								<div className="form-btn" onClick={()=>{
-									bookingDivRef.current.scrollIntoView() 
+									bookingDivRef.current.scrollIntoView()
+									
 								}}>
 									<button className="submit-btn" >Check availability</button>
 								</div>
@@ -69,7 +80,7 @@ function SearchHero({bookings,airports,selectedAirport,setSelectedAirport,setDro
 						</div>
                 </div>
             </div>
-            <div className="row mt-50" ref={bookingDivRef}>
+            <div className="row mt-50" ref={bookingDivRef} >
                <h2 className='text-center my-20'>
                 Search Results...
                </h2>

@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Tooltip from '../tooltip/Tooltip'
 import Tooltipimg from '../tooltip/Tooltipimg'
-import { Link} from "react-router-dom";
+import { setSelectedBooking } from '../../../Redux/slices/UserData'
+import { useDispatch } from 'react-redux'
+import { Link, useHistory } from 'react-router-dom'
 function Booking({item,bookingimage,bookingtitle,bookingtitletip,bookinglist1,bookinglist2,bookinglist3,bookingprice,ratings}) {
-
-
+ const dispatch=useDispatch()
+  let history=useHistory()
   const [stars,setStars]=useState([])
 
   useEffect(()=>{
@@ -14,8 +16,12 @@ function Booking({item,bookingimage,bookingtitle,bookingtitletip,bookinglist1,bo
   },[])
 
   const onBook=()=>{
-    localStorage.setItem('bookingData',JSON.stringify(item))
-    window.location.href='/booking'
+
+    // console.log(item)
+    dispatch(setSelectedBooking(item))
+    // localStorage.setItem('bookingData',JSON.stringify(item))
+    // window.location.href='/booking'
+    // history.go('/booking')
   }
   
   return (
@@ -56,7 +62,7 @@ function Booking({item,bookingimage,bookingtitle,bookingtitletip,bookinglist1,bo
     <h3>
     £ {bookingprice}
     </h3>
-        <button onClick={onBook}>Book Now</button>
+       <Link to={'booking'}> <button onClick={onBook}>Book Now</button></Link>
   </div>
   <div className="booking-review">
 <h6>
