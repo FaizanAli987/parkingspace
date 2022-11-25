@@ -50,7 +50,7 @@ function Invoices() {
 {!['image','_id','__v'].includes(item)?(
             <th key={index}>{item}</th>
 
-):<h4 className='mt-3 mb-3'>No Owner Added</h4>}
+):null}
 </>
           ))}
            
@@ -109,7 +109,7 @@ function Invoices() {
               {['bookingTitle','Owner','airportName','bookingPrice','availability'].includes(it)?(
               <td>{item[it].toString()}</td>
             
-):<h4 className='mt-3 mb-3'>No Booking Plan Added</h4>}
+):null}
               </>
             ))}
             </tr>
