@@ -1,27 +1,22 @@
 {
   "files": {
-    "main.css": "./static/css/main.e409ee73.css",
-    "main.js": "./static/js/main.531de494.js",
-    "static/media/2739.jpg": "./static/media/2739.f780bfc5d1377756a15c.jpg",
-    "static/media/bg.png": "./static/media/bg.d3be086b9ba4e702bd98.png",
-    "static/media/7610.jpg": "./static/media/7610.c9f23a3026ac55db114e.jpg",
-    "static/media/owner.jpg": "./static/media/owner.4fad4043131ff93527d7.jpg",
-    "static/media/banner3.jpg": "./static/media/banner3.98d07e6f7b535cb3c658.jpg",
-    "static/media/booking.jpg": "./static/media/booking.b4661b284b8e9c2d9938.jpg",
-    "static/media/log.png": "./static/media/log.8071acb5ff2bedfa9175.png",
-    "static/media/b.webp": "./static/media/b.197c3afa608571d1e8be.webp",
-    "static/media/parkmarklogo.jpg": "./static/media/parkmarklogo.1aa95ff1f3c84122de6d.jpg",
-    "static/media/su.png": "./static/media/su.82880366d5f95b03002c.png",
-    "static/media/ace.png": "./static/media/ace.d3947c6d6b55239057fa.png",
-    "static/media/cop.webp": "./static/media/cop.6db946a123589ae948fd.webp",
-    "static/media/s.png": "./static/media/s.77305b1aefd2bee0b0b2.png",
-    "static/media/disability_icon.png": "./static/media/disability_icon.1e2666a8a5473391f5a3.png",
-    "index.html": "./index.html",
-    "main.e409ee73.css.map": "./static/css/main.e409ee73.css.map",
-    "main.531de494.js.map": "./static/js/main.531de494.js.map"
+    "main.css": "/parkingspace/static/css/main.aef46cd7.css",
+    "main.js": "/parkingspace/static/js/main.83bd9ccf.js",
+    "static/media/2739.jpg": "/parkingspace/static/media/2739.f780bfc5d1377756a15c.jpg",
+    "static/media/bg.png": "/parkingspace/static/media/bg.d3be086b9ba4e702bd98.png",
+    "static/media/7610.jpg": "/parkingspace/static/media/7610.c9f23a3026ac55db114e.jpg",
+    "static/media/owner.jpg": "/parkingspace/static/media/owner.4fad4043131ff93527d7.jpg",
+    "static/media/banner3.jpg": "/parkingspace/static/media/banner3.98d07e6f7b535cb3c658.jpg",
+    "static/media/booking.jpg": "/parkingspace/static/media/booking.b4661b284b8e9c2d9938.jpg",
+    "static/media/log.png": "/parkingspace/static/media/log.8071acb5ff2bedfa9175.png",
+    "static/media/parkmarklogo.jpg": "/parkingspace/static/media/parkmarklogo.1aa95ff1f3c84122de6d.jpg",
+    "static/media/disability_icon.png": "/parkingspace/static/media/disability_icon.1e2666a8a5473391f5a3.png",
+    "index.html": "/parkingspace/index.html",
+    "main.aef46cd7.css.map": "/parkingspace/static/css/main.aef46cd7.css.map",
+    "main.83bd9ccf.js.map": "/parkingspace/static/js/main.83bd9ccf.js.map"
   },
   "entrypoints": [
-    "static/css/main.e409ee73.css",
-    "static/js/main.531de494.js"
+    "static/css/main.aef46cd7.css",
+    "static/js/main.83bd9ccf.js"
   ]
 }
