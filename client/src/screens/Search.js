@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Header from "../components/header/Header";
 import Footer from "../components/footer/Footer";
 import SearchHero from '../components/main/searchsection/SearchHero';
-import { ServerUrl } from '../helper';
+import { LocalUrl } from '../helper';
 import { useSelector, useDispatch } from 'react-redux'
 
 
@@ -19,7 +19,7 @@ function Search() {
 
 const searchBookings=async()=>{
   // setBookings([])
-  fetch(`${ServerUrl}/getBookingsByAirportName`,{
+  fetch(`${LocalUrl}/getBookingsByAirportName`,{
     method:'PUT',
     headers: { 'Content-Type': 'application/json' },
     body:JSON.stringify({
@@ -44,7 +44,7 @@ bookingDivRef&&bookingDivRef.current.scrollIntoView()
 }
 
 const getAllAirports=async()=>{
-  fetch(`${ServerUrl}/getAirports`,{
+  fetch(`${LocalUrl}/getAirports`,{
     method:'GET'
   }).then((r)=>r.json()).then((r)=>{
     console.log(r?.airports)

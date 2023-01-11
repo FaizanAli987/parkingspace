@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Fragment } from "react";
 import H1tag from "../../typography/H1tag";
 import Ptag from "../../typography/Ptag";
-import { ServerUrl } from "../../../helper";
+import { LocalUrl } from "../../../helper";
 import { setSearchAirportFields } from "../../../Redux/slices/UserData";
 import { useSelector, useDispatch } from "react-redux";
 import { Link,useHistory} from "react-router-dom";
@@ -16,7 +16,7 @@ function Herosection() {
   };
 
   const getAllAirports = async () => {
-    fetch(`${ServerUrl}/getAirports`, {
+    fetch(`${LocalUrl}/getAirports`, {
       method: "GET",
     })
       .then((r) => r.json())
@@ -97,7 +97,7 @@ function Herosection() {
                       >
                         <option>Select Airport</option>
                         {airports.map((item, index) => {
-                          return <option>{item}</option>;
+                          return <option key={index}>{item}</option>;
                         })}
                       </select>
                       <span className="select-arrow"></span>

@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { ServerUrl } from '../../../helper';
+import { LocalUrl } from '../../../helper';
 
 function MainParking() {
   const [showbookingform, setShowbookingform]=useState(false);
@@ -36,7 +36,7 @@ function MainParking() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ bookingTitle,"Owner":selectedOwner,airportName,bookingPrice,ratings,parkingLimit,bookingImage,"ownerId":selectedOwnerId,"availability":bookingAvailable})
 			};
-      fetch(`${ServerUrl}/addBooking`, requestOptions)
+      fetch(`${LocalUrl}/addBooking`, requestOptions)
 				.then(response => response.json())
 				.then(data => {
 					if(data.success==false){
@@ -105,10 +105,11 @@ function MainParking() {
     }else{
       const requestOptions = {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: { 'Content-Type': 'application/json',
+       },
 				body: JSON.stringify({ email,firstName,lastName,mobileNumber,image})
 			};
-      fetch(`${ServerUrl}/addParkingOwner`, requestOptions)
+      fetch(`${LocalUrl}/addParkingOwner`, requestOptions)
 				.then(response => response.json())
 				.then(data => {
 					if(data.success==false){
@@ -131,7 +132,7 @@ function MainParking() {
 
 
   const getAllParkingOwnerNames=async()=>{
-    fetch(`${ServerUrl}/getParkingOwnerNames`,{
+    fetch(`${LocalUrl}/getParkingOwnerNames`,{
       method:'GET'
     }).then((r)=>r.json()).then((r)=>{
       console.log(r?.user)

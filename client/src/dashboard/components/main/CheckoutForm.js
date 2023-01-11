@@ -57,7 +57,7 @@
 
 import React from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { ServerUrl, LocalUrl } from '../../../helper';
+import { LocalUrl, LocalUrl } from '../../../helper';
 import axios from "axios";
 
 export const CheckoutForm = () => {

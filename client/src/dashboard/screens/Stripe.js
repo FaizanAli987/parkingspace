@@ -1,7 +1,7 @@
 // import {Elements} from '@stripe/react-stripe-js';
 // import {loadStripe} from '@stripe/stripe-js';
 // import CheckoutForm from '../components/main/CheckoutForm';
-// import { ServerUrl, LocalUrl } from '../../helper';
+// import { LocalUrl, LocalUrl } from '../../helper';
 // import { useEffect, useState } from 'react';
 
 // // Make sure to call `loadStripe` outside of a component’s render to avoid
@@ -50,7 +50,7 @@ import {
   useStripe,
   useElements,
 } from "@stripe/react-stripe-js";
-import { ServerUrl, LocalUrl } from '../../helper';
+import { LocalUrl } from '../../helper';
 
 import { loadStripe } from "@stripe/stripe-js";
 import "./Stripe.css";

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { ServerUrl } from '../../helper'
+import { LocalUrl } from '../../helper'
 import { setAdminAuth } from '../../Redux/slices/UserData'
 import { useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
@@ -18,7 +18,7 @@ function Login() {
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({ email:email,password:password})
 			};
-			fetch(`${ServerUrl}/login`, requestOptions)
+			fetch(`${LocalUrl}/login`, requestOptions)
 				.then(response => response.json())
 				.then(data => {
 					if(data.success==false){

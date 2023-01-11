@@ -34,7 +34,7 @@ render(
       <Route exact path="/booking" >
       <Booking />
       </Route>
-      <Route  path="/dashboard">
+      <Route exact path="/dashboard">
       <Dashboard />
       </Route>
       <Route exact path="/login">

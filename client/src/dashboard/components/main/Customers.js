@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import './Customers.css'
-import { ServerUrl } from '../../../helper'
+import { LocalUrl } from '../../../helper'
 function Customers() {
   const [allCustomer,setCustomers]=useState([])
 
   const getCustomers=async()=>{
-    fetch(`${ServerUrl}/getSubmittedBookings`,{
+    fetch(`${LocalUrl}/getSubmittedBookings`,{
       method:'GET'
     }).then((r)=>r.json()).then((r)=>{
       console.log(r?.user)

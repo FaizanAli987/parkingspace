@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector,useDispatch } from "react-redux";
 import { setUserDetails,setTravelDetails,setVehicleDetails,setSelectedBooking,setSearchAirportFields } from "../../../Redux/slices/UserData";
 import { useHistory } from "react-router-dom";
-import { ServerUrl } from "../../../helper";
+import { LocalUrl } from "../../../helper";
 
 function BookingForm() {
   // const history=useHistory()
@@ -78,7 +78,7 @@ const submitBooking=async()=>{
   }else{
     const requestOptions = {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin': '*'},
       body: JSON.stringify({  
         departTerminal:travelDetails.departTerminal,
         arrivalTerminal:travelDetails.arrivalTerminal,
@@ -98,7 +98,7 @@ const submitBooking=async()=>{
         mobileNumber:userDetails.mobileNumber
       })
     };
-    fetch(`${ServerUrl}/submitBooking`, requestOptions)
+    fetch(`${LocalUrl}/submitBooking`, requestOptions)
       .then(response => response.json())
       .then(data => {
         if(data.success==false){

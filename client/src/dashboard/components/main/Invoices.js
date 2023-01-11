@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { ServerUrl } from '../../../helper'
+import { LocalUrl } from '../../../helper'
 
 function Invoices() {
   const [parkingOwners,setParkingOwners]=useState([])
   const [plans,setPlans]=useState([])
 
   const getParkingOwners=async()=>{
-    fetch(`${ServerUrl}/getParkingOwners`,{
+    fetch(`${LocalUrl}/getParkingOwners`,{
       method:'GET'
     }).then((r)=>r.json()).then((r)=>{
       r?.user?.map((Item,index)=>{
@@ -18,7 +18,7 @@ function Invoices() {
   }
 
   const getPlans=async()=>{
-    fetch(`${ServerUrl}/getBookingPlans`,{
+    fetch(`${LocalUrl}/getBookingPlans`,{
       method:'GET'
     }).then((r)=>r.json()).then((r)=>{
       console.log(r)
